@@ -76,8 +76,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 50vh;
   position: relative;
+  
 }
 
 .section-top::after {
@@ -89,6 +90,7 @@ body {
   right: 0;
   background-color: #000;
   opacity: 0.3;
+  vertical-align: bottom;
 }
 
 .section-top h1 {
@@ -98,7 +100,7 @@ body {
   transform: translateY(-50%) translateX(-50%);
   color: #FFF;
   text-align: center;
-  font-size: 46px;
+  font-size: 4rem;
   letter-spacing: 5px;
   font-weight: normal;
   z-index: 2;
@@ -106,10 +108,34 @@ body {
 
 .small {
   display: block;
-  font-size: 20px;
+  font-size: 1.5rem;
   margin-top: 10px;
 }
 
+@media screen and (max-width: 850px) {
+ .section-top{
+  height: 35vh;
+ }
+ .section-top h1{
+  font-size: 3rem;
+ }
+ .small{
+  font-size: 1rem;
+ }
+}
+
+@media screen and (max-width: 590px) {
+  .section-top{
+    height: 50vh;
+  }
+
+  .section-top h1{
+    font-size: 1.8rem;
+   }
+   .small{
+    font-size: 0.7rem;
+   }
+}
 
 .about-us {
   background-color: #fff;
