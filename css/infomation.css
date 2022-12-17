@@ -1,148 +1,470 @@
-.info-title{
-  margin-top: 63px;
+body{
+  /* 全体の余白を０にするため */
+  margin: 0%; 
+  padding: 0%; 
+  font-family: 'Noto Serif JP', serif;
+
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+
+header{
+  position: sticky; /*fixdは画面のきまった位置に固定する(要素が被るのでstickyにした)*/
+  z-index: 999; /*数字の小さい順に前面に配置され表示*/
+  top: 0;
+  width: 100%;
+  padding: 10px 30px; /*ヘッダーの余白を調整*/
+  background:  #182A44;
+  box-sizing: border-box; /*paddng marginを含む要素で幅高さを計算*/
+  opacity: 0.9;
+ 
+}
+
+.header_container{
   position: relative;
-  width: 100%;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  display: flex; /*横並び*/
+  align-items: center;  /*上下中央*/
+  justify-content: space-between;
+  height: 100%;
 }
 
-.info-header{
-  background-image: url('../img/info.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment:fixed;
-  width: 100%;
-  height: 320px;
-  position: relative;
+header h1{
+  color: #F4F5F7;
 }
 
-.info-header::after{
-  content: '';
-  background-color: rgba(0,0,0,.5);
-  position: absolute;
-  width: 100%;
-  height: 320px;
+header li{
+  color: #F4F5F7;
+   transition:transform 2s;  /*変化にかかる時間指定*/
+}
 
+.header_item_2 a{
+  color: #F4F5F7;
+  text-decoration: none; /*下線を消す*/
 }
 
 
 
-h2{
-  height:60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.header_item_2 li:hover {
+  /* text-decoration: underline; マウスを当てたら下線が出てくるようにする  */
+  transform: scale(1.15); /* 拡大する */
+  border-bottom:2px solid;
 }
 
-.ic {
-  color: rgb(255, 255, 255);
-  font-family: serif, sans-serif;
-  font-size: 42px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  z-index: 1;
-
-}
-
-.com{
-  color: rgb(255, 255, 255);
-  font-family: serif, sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  margin-top: 50px;
-  z-index: 1;
-
-}
-/*
-.intro{
-  position: relative;
-  width: 100%;
-  flex-wrap: wrap;
-  align-content: flex-start;
-}
-*/
-
-.intro{
-  background-color: #e5eff3;
-  display: block;
-}
-
-/*
-.intro::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  border-top: 10vw solid #fff;  /* 三角を白にする 
-  border-right: 115vw solid transparent;
-  bottom: 260px;
-} */
-
-
-.text-info{
+.header_item_2 ul{
+  list-style: none; /*・を消す*/
   display: flex;
 }
 
-.massage{
-  color: #1f519a;
-  font-family: serif, sans-serif;
-  font-size: 55px;
-  letter-spacing: 5px;
-  margin-top: 20px;
-
-}
-
-.hello{
-  font-family: serif, sans-serif;
-  font-size: 18px;
-  padding-bottom: 40px;
-}
-
-.comtext{
-    color: black;
-    font-family: serif, sans-serif;
-    font-weight: 400;
-    line-height: 2em;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    text-align: left;
-    width: 600px;
-    padding-left: 200px;
+.header_item_2 ul li {
+  /*リストの要素を均等に配置するため左右*/
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  letter-spacing: 0.3em;
+  font-size: 17px;
+  text-align: center;
   
 }
 
-.name{
-    color: black;
-    font-family: serif, sans-serif;
-    font-weight: 500;
-    line-height: 2em;
-    padding-left: 250px;
-    font-size: 30px;
-    
+.br::before{
+  /*brタグを使わずに擬似要素で改行する方法 /Aは改行って意味らしい beforeならクラス名の直前 afterなら直後*/
+  content: "\A" ;
+	white-space: pre ; /*行の自動折り返し 改行を反映させるため*/
 }
 
-.imghome3{
+.br {
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 1166px){ 
+  .header_item_2{
+    display: none; /* メニューを非表示*/
+  }
+
+  #phone {
+    /*小さいブロックを作っている*/
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 25px;
+    margin: 0 0 0 auto;/*左だけautoにして右側に押す感じ*/
+  }
+
+  #phone span{
+    /*ブロックの中の真ん中に白い線を一つ作成*/
+    position: absolute;
+    top: 50%; /*上から半分の位置に指定*/
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform: translateY(-50%); /*線の高さ2pxの上の線に合わせて半分位置を指定している設定のため、1px分上にずらすために使用*/
+  }  
+
+  /*上の線を擬似要素で作成*/
+  #phone::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+ }
+
+
+  /*下の線を擬似要素で作成*/
+  #phone::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70%; /*一番下の線だけちょっと短くするため*/
+    height: 2px;
+    background-color: #fff;
+ }
+   
+}
+
+
+.br_main::before{
+  /*brタグを使わずに擬似要素で改行する方法 /Aは改行って意味らしい beforeならクラス名の直前 afterなら直後*/
+  content: "\A" ;
+	white-space: pre ; /*行の自動折り返し 改行を反映させるため*/
+}
+
+.title{
+  background-image: url(../img/wallspace.webp);
+  background-size: cover; /*サイズの縦横比を維持したまま表示*/
+  height: 320px;
+  /*フレックスで上下左右中央に配置する記述 ・alignで上下 ・justifyで左右*/
+  display: flex; 
+  align-items: center;
+  justify-content: center;
   position: relative;
-  left: 250px;
-  bottom: 10px;
 
-  z-index: 1;
+  /*フレックスで指定する前にやった別の方法 
+  width: 100%; displayをtableしたら、画像が小さくなったから使って
+  display: table; 文字を上下中央にするための記述 親要素に指定*/
 }
 
-.imghome4{
+/*背景色を画像に重ねる方法を記載*/
+.title::after{
+  content: '';
+  background-color: black;
   position: absolute;
-  top: 750px;
-  right: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.6;
+  
 }
+
+.title h1{
+  z-index: 1;
+  letter-spacing: 0.1em;
+  font-family: serif;
+  font-size: 40px;
+  color: #F4F5F7;
+  text-align: center;
+  line-height: 30px; /*h1とspanの行間を縮めるために記載 行間のデフォルトはフォントサイズの倍くらい？*/
+
+  /* display: table-cell; 文字を上下中央にするための記述 子要素に指定 */
+  /* vertical-align:middle; 文字を上下中央にするための記述 子要素に指定 */
+}
+
+.br_main {
+  font-size: 20px;
+}
+
+.br_common{
+  color: black;
+}
+
+
+.common {
+  text-align: center;
+  letter-spacing: 0.1em;
+  padding: 30px 0 60px 0;
+}
+
+.common h1{
+  font-size: 50px;
+  line-height: 25px;
+  color: #003682;
+}
+
+.common p{
+  width:45%;
+  margin:0 auto;
+}
+
+.vision{
+  background-color: #032137;
+  color: #F4F5F7;
+  letter-spacing: 0.1em;
+  padding: 30px 0 60px 0;
+}
+.vision_top{
+  text-align: center;
+}
+
+.vision_top h1{
+  font-size: 50px;
+  line-height: 25px;
+}
+
+.vision_top {
+  width:45%;
+  margin:0 auto;
+}
+
+.activity_1 {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+  background-color: #032137;
+
+}
+
+/*リストタグの中の写真とテキストを左右交互に配置する方法 evenは偶数 oddは奇数*/
+.activity_1:nth-child(even){
+  flex-direction: row-reverse;
+  background-color:#FFF;
+}
+
+.activity_1:nth-child(odd) .phrase{
+  background-color: #fff;
+  color: #292b2c;
+  /*文字の背景を縦横調整のため paddingは余白*/
+  width: 30vw;
+  height: 20vw;
+  padding: 20px;
+
+  /*文字の位置調整*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: -180px;
+  position: relative; /*画像と写真を重ねるために記載*/
+  z-index: 20; /*優先度を上にするため*/
+
+}
+
+.activity_1:nth-child(even) .phrase{
+  background-color: #fff;
+  color: #292b2c;
+  /*文字の背景を縦横調整のため paddingは余白*/
+  width: 30vw;
+  height: 20vw;
+  padding: 20px;
+
+  /*文字の位置調整*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: -180px;
+  position: relative; /*画像と写真を重ねるために記載*/
+  z-index: 20; /*優先度を上にするため*/
+}
+
+.phrase h2{
+  font-size: 18px;
+}
+
+/*画像の写真の位置を指定するために*/
+.bg_main_1{
+  position: relative;
+}
+
+/*アブソリュートだけ指定すると要素が重なるためleftやらを指定している。*/
+.bg_main_1::before {
+  content: '';
+  background-image: url(../img/painting.webp);
+  width: 40px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  left: -50px;
+  z-index: 30;
+
+}
+
+/*画像の写真の位置を指定するために*/
+.bg_main_2{
+  position: relative;
+}
+
+/*アブソリュートだけ指定すると要素が重なるためleftやらを指定している。*/
+.bg_main_2::before {
+  content: '';
+  background-image: url(../img/paint.webp);
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  left: -60px;
+  z-index: 30;
+
+}
+
+/*画像の写真の位置を指定するために*/
+.bg_main_3{
+  position: relative;
+}
+
+/*アブソリュートだけ指定すると要素が重なるためleftやらを指定している。*/
+.bg_main_3::before {
+  content: '';
+  background-image: url(../img/pallet.webp);
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  left: -60px;
+  z-index: 30;
+
+}
+
+/*画像の写真の位置を指定するために*/
+.bg_main_4{
+  position: relative;
+}
+
+/*アブソリュートだけ指定すると要素が重なるためleftやらを指定している。*/
+.bg_main_4::before {
+  content: '';
+  background-image: url(../img/painting.webp);
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  left: -60px;
+  z-index: 30;
+
+}
+
+
+.photo{
+  width: 60%;
+}
+img {
+  width:100%;
+
+}
+
+.company{
+  background-color: #F6F6F6;
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+.company_list h1 {
+  font-size: 50px;
+  text-align: center;
+  line-height: 25px;
+  color: #003682;
+  margin: 0;
+  padding-bottom: 60px;
+}
+
+.br_company{
+  color: black;
+  font-size: 20px;
+  
+}
+
+.company_list ul {
+  text-align: center;
+  background-color: #FFF;
+  line-height: 3.5em;
+  width: 65%;
+  margin: 0 auto;
+  padding: 80px;
+}
+
+.company_list li{
+  text-align: justify; /*均等に割り当てる 字 行すべて*/
+  text-justify: inter-ideograph; /*IE edgeで見るときjustifyを適用する為のコード*/
+  list-style: none;
+  padding-left: 20px; /*リストの余白を左にちょっと設けて文字の開始位置をずらしている*/
+  /*線のデザイン 上から線の種類 太さ 色を指定している*/
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #ddd;
+  
+}
+
+/*太字の部分だけインラインブロック要素にして幅を指定して後の文字の開始位置を見やすいように固定*/
+b{
+  display: inline-block;
+  width: 10em;
+
+}
+
+.content {
+  background-color: #FFF;
+  height: 300px;
+}
+
+.content_item h1{
+  font-size: 50px;
+  text-align: center;
+  line-height: 15px;
+  color: #003682;
+  letter-spacing: 0.1em;
+
+}
+
+.servis {
+  color: black;
+  font-size: 20px;
+
+}
+
+.mail_form {
+  background-color: #182A44;
+  width: 40%;
+  height: 120px;
+  margin: 0 auto;
+  line-height:115px;
+  transition:0.5s;
+}
+
+.mail_content {
+  text-align: center;
+  color: #FFF;
+  font-size: 18px;
+  position: relative;
+}
+
+.mail_content::before{
+  content: "CONTACT";
+  position: absolute;
+  font-size: 55px;
+  letter-spacing: 0.3em;
+  left: 95px;
+  color: gray;
+  opacity: 0.5;
+
+}
+
+.mail_form:hover{
+ opacity:0.5;
+}
+
+
