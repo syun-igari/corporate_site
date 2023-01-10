@@ -5,74 +5,11 @@ body{
   font-family: 'Noto Serif JP', serif;
 
 }
+
 ul{
   margin: 0;
   padding: 0;
 }
-
-.br::before{
-  /*brタグを使わずに擬似要素で改行する方法 /Aは改行って意味らしい beforeならクラス名の直前 afterなら直後*/
-  content: "\A" ;
-	white-space: pre ; /*行の自動折り返し 改行を反映させるため*/
-}
-
-.br {
-  font-size: 12px;
-}
-
-@media only screen and (max-width: 1166px){ 
-  .header_item_2{
-    display: none; /* メニューを非表示*/
-  }
-
-  #phone {
-    /*小さいブロックを作っている*/
-    position: relative;
-    display: block;
-    width: 30px;
-    height: 25px;
-    margin: 0 0 0 auto;/*左だけautoにして右側に押す感じ*/
-  }
-
-  #phone span{
-    /*ブロックの中の真ん中に白い線を一つ作成*/
-    position: absolute;
-    top: 50%; /*上から半分の位置に指定*/
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    transform: translateY(-50%); /*線の高さ2pxの上の線に合わせて半分位置を指定している設定のため、1px分上にずらすために使用*/
-  }  
-
-  /*上の線を擬似要素で作成*/
-  #phone::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
- }
-
-
-  /*下の線を擬似要素で作成*/
-  #phone::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 70%; /*一番下の線だけちょっと短くするため*/
-    height: 2px;
-    background-color: #fff;
- }
-   
-}
-
 
 .br_main::before{
   /*brタグを使わずに擬似要素で改行する方法 /Aは改行って意味らしい beforeならクラス名の直前 afterなら直後*/
@@ -125,46 +62,213 @@ ul{
   font-size: 20px;
 }
 
-.br_common{
-  color: black;
-}
-
-
-.common {
-  text-align: center;
-  letter-spacing: 0.1em;
-  padding: 30px 0 60px 0;
-}
-
-.common h1{
-  font-size: 50px;
-  line-height: 25px;
+.jigyou_annai h1 {
+  margin: 0;
+  padding-top: 20px;
+  font-family: serif;
   color: #003682;
-}
-
-.common p{
-  width:45%;
-  margin:0 auto;
-}
-
-.vision{
-  background-color: #032137;
-  color: #F4F5F7;
   letter-spacing: 0.1em;
-  padding: 30px 0 0 0;
+  line-height: 30px;
+  text-align: center;
+  font-size: 40px;
+  
 }
-.vision_top{
+
+.br_annai {
+  color: black;
+  
+}
+
+.jigyou_body{
+  background-color:#E5EAEE;
+}
+
+.jigyou_content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+  position: relative;
+  margin:50px 200px;
+  row-gap:20px; /*フレックスの要素の行間を指定*/
+  column-gap:20px; /*フレックスの要素の幅間を指定*/
+
+}
+
+.jigyou_content h1 {
+  color: white;
+  text-align: left;
+  padding: 50px;
+  position: relative;
+  z-index: 999;
+  font-size: 30px;
+
+}
+
+.job_con {
+  width:30%;
   text-align: center;
 }
 
-.vision_top h1{
-  font-size: 50px;
-  line-height: 25px;
+.job_content1{
+  background-image: url(../img/img3.webp);
+  background-size: cover;
+  position: relative;
 }
 
-.vision_top {
-  width:45%;
-  margin:0 auto;
+.job_content2{
+  background-image: url(../img/img3.webp);
+  background-size: cover;
+  position: relative;
+}
+
+.job_content3{
+  background-image: url(../img/img3.webp);
+  background-size: cover;
+  position: relative;
+}
+
+.job_content4{
+  background-image: url(../img/img3.webp);
+  background-size: cover;
+  position: relative;
+}
+
+.job_content5{
+  background-image: url(../img/img3.webp);
+  background-size: cover;
+  position: relative;
+}
+
+
+
+
+.job_content1::after{
+  content: '';
+  background-color: black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.6;
+  
+}
+.job_content2::after{
+  content: '';
+  background-color: black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.6;
+  
+}
+.job_content3::after{
+  content: '';
+  background-color: black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.6;
+  
+}
+.job_content4::after{
+  content: '';
+  background-color: black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.6;
+  
+}
+.job_content5::after{
+  content: '';
+  background-color: black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.6;
+  
+}
+
+
+.job_con:hover{
+  transform: scale(1.1);
+  transition: transform 1s;
+  opacity: 0.4;
+}
+
+.job_syo {
+  display: flex;
+  margin: 100px 100px 0px 100px; 
+  align-items: flex-start;
+  padding-bottom: 70px;
+  border-bottom: 4px dashed;
+
+}
+
+
+.job_syo img {
+  width: 30%;
+  margin-right: 40px;
+
+}
+
+.job_syo h1{
+  color: #003682;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.title_v2{
+  background-image: url(../img/home5.webp);
+  background-size: cover; /*サイズの縦横比を維持したまま表示*/
+  height: 320px;
+  /*フレックスで上下左右中央に配置する記述 ・alignで上下 ・justifyで左右*/
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+
+  /*フレックスで指定する前にやった別の方法 
+  width: 100%; displayをtableしたら、画像が小さくなったから使って
+  display: table; 文字を上下中央にするための記述 親要素に指定*/
+}
+
+/*背景色を画像に重ねる方法を記載*/
+.title_v2::after{
+  content: '';
+  background-color: black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.6;
+  
+}
+
+.title_v2 h1{
+  z-index: 1;
+  letter-spacing: 0.1em;
+  font-family: serif;
+  font-size: 40px;
+  color: #F4F5F7;
+  text-align: center;
+  line-height: 30px; /*h1とspanの行間を縮めるために記載 行間のデフォルトはフォントサイズの倍くらい？*/
+
+  /* display: table-cell; 文字を上下中央にするための記述 子要素に指定 */
+  /* vertical-align:middle; 文字を上下中央にするための記述 子要素に指定 */
 }
 
 .activity_1 {
@@ -309,102 +413,46 @@ ul{
 
 }
 
-.company{
-  background-color: #F6F6F6;
-  padding-top: 30px;
-  padding-bottom: 70px;
-}
 
-.company_list h1 {
-  font-size: 50px;
-  text-align: center;
-  line-height: 25px;
-  color: #003682;
-  margin: 0;
-  padding-bottom: 60px;
-}
-
-.br_company{
-  color: black;
-  font-size: 20px;
-  
-}
-
-.company_list ul {
-  text-align: center;
-  background-color: #FFF;
-  line-height: 3.5em;
-  width: 65%;
-  margin: 0 auto;
-  padding: 80px;
-}
-
-.company_list li{
-  text-align: justify; /*均等に割り当てる 字 行すべて*/
-  text-justify: inter-ideograph; /*IE edgeで見るときjustifyを適用する為のコード*/
-  list-style: none;
-  padding-left: 20px; /*リストの余白を左にちょっと設けて文字の開始位置をずらしている*/
-  /*線のデザイン 上から線の種類 太さ 色を指定している*/
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-color: #ddd;
-  
-}
-
-/*太字の部分だけインラインブロック要素にして幅を指定して後の文字の開始位置を見やすいように固定*/
-b{
-  display: inline-block;
-  width: 10em;
-
-}
-
-.content {
-  background-color: #FFF;
-  height: 300px;
-}
-
-.content_item h1{
-  font-size: 50px;
-  text-align: center;
-  line-height: 15px;
+.job_sec_flow h1 {
+  font-size: 40px;
   color: #003682;
   letter-spacing: 0.1em;
-
-}
-
-.servis {
-  color: black;
-  font-size: 20px;
-
-}
-
-.mail_form {
-  background-color: #182A44;
-  width: 40%;
-  height: 120px;
-  margin: 0 auto;
-  line-height:115px;
-  transition:0.5s;
-}
-
-.mail_content {
+  line-height: 30px;
   text-align: center;
-  color: #FFF;
-  font-size: 18px;
+  
+}
+
+.job_flow{
+  height: 320px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
   position: relative;
+  
+
+  /*フレックスで指定する前にやった別の方法 
+  width: 100%; displayをtableしたら、画像が小さくなったから使って
+  display: table; 文字を上下中央にするための記述 親要素に指定*/
 }
 
-.mail_content::before{
-  content: "CONTACT";
-  position: absolute;
-  font-size: 55px;
-  letter-spacing: 0.3em;
-  left: 95px;
-  color: gray;
-  opacity: 0.5;
 
+.job_sec_flow{
+  background-color: #F7F7F7;
 }
 
-.mail_form:hover{
- opacity:0.5;
+.flow_img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+ 
 }
+
+.flow_img img {
+  width: 80%;
+}
+
+
+
